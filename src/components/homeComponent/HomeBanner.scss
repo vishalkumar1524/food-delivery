@@ -1,0 +1,40 @@
+.home_banner{
+width: 100%;
+height: 200px;
+background-image:url('./public/assts/homeScreen/banner/home-banner.jpg') ;
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 25px;
+position: relative;
+
+.bg_layout{
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to right,black,rgba(0, 0, 0, 0.09));
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.banner_content{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    .left_content{
+        width: 70%;
+        padding: 15px 10px;
+        .title{
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .text{
+            color: #909096;
+        }
+    }
+}
+}

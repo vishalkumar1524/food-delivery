@@ -1,7 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import Home from './screen/HomeScreen';
 
 const AppRouter = () => {
   return (
