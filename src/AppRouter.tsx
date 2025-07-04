@@ -1,7 +1,10 @@
-import { Redirect, Route } from 'react-router-dom';
-import { IonRouterOutlet } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
-import Home from './screen/HomeScreen';
+import { IonRouterOutlet } from '@ionic/react'
+import { IonReactRouter } from '@ionic/react-router'
+import React from 'react'
+import { Redirect, Route } from 'react-router-dom'
+import HomeScreen from './screen/HomeScreen'
+import RestaurantMenuScreen from './screen/RestaurantMenuScreen'
+import CartScreen from './screen/CartScreen'
 
 const AppRouter = () => {
   return (
@@ -9,13 +12,19 @@ const AppRouter = () => {
       <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/home">
-          <Home />
+          <HomeScreen />
         </Route>
         <Route exact path="/">
           <Redirect to="/home" />
         </Route>
+        <Route  exact path="/restaurant-menu/:restaurantId">
+        <RestaurantMenuScreen/>
+        </Route>
+         <Route  exact path="/cart-screen">
+        <CartScreen/>
+        </Route>
       </IonRouterOutlet>
-    </IonReactRouter> 
+    </IonReactRouter>
     </>
   )
 }
