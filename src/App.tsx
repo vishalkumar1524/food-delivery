@@ -35,6 +35,7 @@ import AppRouter from './AppRouter';
 setupIonicReact();
 
 const App: React.FC = () => (
+  
   <IonApp>
       <AppRouter/>
 

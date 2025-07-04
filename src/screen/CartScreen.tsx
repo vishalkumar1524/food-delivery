@@ -32,11 +32,9 @@ const CartScreen: React.FC = () => {
           });
       } catch (error) {
         console.error("Invalid cart data in localStorage:", error);
-        history.goBack();
+      
       }
-    } else {
-      history.goBack();
-    }
+    } 
   }, [location.key]);
 
   const handleIncrementOrDecrement = (itemIndex: number, method: string) => {
@@ -100,8 +98,12 @@ const CartScreen: React.FC = () => {
               <div className="restaurant_name">{restaurantData?.name}</div>
             </div>
 
+            
+
             <div className="cart_item_section">
-              {restaurantCart &&
+              {restaurantCart&& restaurantCart.items.length?(
+                <>
+                              {restaurantCart &&
                 restaurantCart.items?.map((cartItem, itemIndex) => {
                   return (
                     <div key={itemIndex}>
@@ -113,14 +115,28 @@ const CartScreen: React.FC = () => {
                     </div>
                   );
                 })}
+                </>
+              ):(
+                <div>0 Items in cart</div>
+              )}
+
             </div>
             <div className="footer_section">
-              <div className="total_section">
+              
+{restaurantCart&& restaurantCart.totalPrice ?(
+  <><div className="total_section">
                 <span>Payable Amount</span>
-                <span>₹ {restaurantCart?.totalPrice}</span>
+                <span>₹ {restaurantCart.totalPrice}</span>
               </div>
 
-              <button className="place_order_btn">Place Order</button>
+              <button className="place_order_btn">Place Order</button></>
+ ):(
+  <>
+  <button className="place_order_btn" onClick={()=>{history.goBack()}}>Add Items in Cart</button>
+  </>
+ )
+              }
+              
             </div>
           </div>
         </div>
